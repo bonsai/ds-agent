@@ -1,0 +1,42 @@
+{
+  "name": "ds-agent",
+  "version": "0.1.0",
+  "domain": "data-analysis",
+  "engine": "BigQuery ML",
+  "entities": [
+    "DataSource",
+    "Dataset",
+    "Table",
+    "Column",
+    "Metric",
+    "Hypothesis",
+    "Feature",
+    "Model",
+    "Evaluation",
+    "Insight",
+    "Decision",
+    "Artifact"
+  ],
+  "relations": [
+    ["Dataset", "contains", "Table"],
+    ["Table", "contains", "Column"],
+    ["Hypothesis", "uses", "Metric"],
+    ["Feature", "derived_from", "Column"],
+    ["Model", "trained_on", "Feature"],
+    ["Evaluation", "evaluates", "Model"],
+    ["Insight", "derived_from", "Evaluation"],
+    ["Decision", "based_on", "Insight"],
+    ["Artifact", "evidences", "Insight"]
+  ],
+  "model_families": [
+    "linear_regression",
+    "logistic_regression",
+    "boosted_tree",
+    "random_forest",
+    "dnn",
+    "kmeans",
+    "arima_plus",
+    "matrix_factorization",
+    "embedding"
+  ]
+}
